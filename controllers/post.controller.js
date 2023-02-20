@@ -5,7 +5,7 @@ const logger = require('../config/loggers');
 class PostController {
   postService = new PostService();
 
-  //일기장 만들기
+  //일기장 생성
   createPost = async (req, res) => {
     try {
       const userId = res.locals.userId - SECRET_SUM;
@@ -38,7 +38,7 @@ class PostController {
     }
   };
 
-  //일기장 전체 조회하기
+  //일기장 전체 조회
   findPost = async (req, res) => {
     try {
       const { diaryId } = req.params;
@@ -55,7 +55,7 @@ class PostController {
     }
   };
 
-  //일기장 상세 조회하기
+  //일기장 상세 조회
   findDetailPost = async (req, res) => {
     try {
       const userId = res.locals.userId - SECRET_SUM;
@@ -72,7 +72,7 @@ class PostController {
     }
   };
 
-  //일기장 수정하기
+  //일기장 수정
   patchPost = async (req, res) => {
     try {
       const userId = res.locals.userId - SECRET_SUM;
@@ -105,7 +105,7 @@ class PostController {
     }
   };
 
-  //일기장 삭제하기
+  //일기장 삭제
   deletePost = async (req, res) => {
     try {
       const userId = res.locals.userId - SECRET_SUM;

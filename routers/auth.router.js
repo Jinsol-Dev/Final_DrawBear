@@ -16,11 +16,11 @@ router.get(
   SocialLogin.ResponseToken,
 );
 
-router.get('/login/naver', SocialLogin.Naver);
-router.get(
-  '/login/naver/callback',
-  SocialLogin.NaverCallBack,
-  SocialLogin.ResponseToken,
-);
+// router.get('/login/naver', SocialLogin.Naver);
+// router.get(
+//   '/login/naver/callback',
+//   SocialLogin.NaverCallBack,
+//   SocialLogin.ResponseToken,
+// );
 
 module.exports = router;

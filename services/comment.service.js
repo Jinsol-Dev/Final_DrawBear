@@ -11,7 +11,8 @@ class CommentService {
   commentRepository = new CommentRepository(Comments);
   postRepository = new PostRepository(Posts);
   notificationsRepository = new NotificationsRepository(Notifications);
-  //댓글 생성하기
+
+  //댓글 생성
   createComment = async (comment, userId, postId) => {
     if (!comment) throw new ValidationError('내용을 입력해주세요');
 
@@ -31,13 +32,14 @@ class CommentService {
       );
   };
 
-  //댓글 조회하기
+  //댓글 조회
   findComment = async (postId) => {
     const comments = this.commentRepository.findPostComment(postId);
 
     return comments;
   };
 
+  //댓글 수정
   updateComment = async (commentId, userId, comment) => {
     const isComment = await this.commentRepository.findOneComment(commentId);
 
@@ -49,6 +51,7 @@ class CommentService {
     await this.commentRepository.updateComment(commentId, comment);
   };
 
+  // 댓글 삭제
   deleteComment = async (commentId, userId) => {
     const isComment = await this.commentRepository.findOneComment(commentId);
 

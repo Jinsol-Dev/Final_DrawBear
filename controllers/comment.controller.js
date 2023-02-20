@@ -4,7 +4,7 @@ const logger = require('../config/loggers');
 class CommentController {
   commentService = new CommentService();
 
-  //댓글 만들기
+  //댓글 생성
   createComment = async (req, res, next) => {
     const { comment } = req.body;
     const { postId } = req.params;
@@ -23,7 +23,7 @@ class CommentController {
     }
   };
 
-  //댓글 찾기
+  //댓글 조회
   findComment = async (req, res, next) => {
     const { postId } = req.params;
 
@@ -40,7 +40,7 @@ class CommentController {
     }
   };
 
-  //댓글 수정하기
+  //댓글 수정
   updateComment = async (req, res, next) => {
     const { comment } = req.body;
     const { commentId } = req.params;
@@ -59,7 +59,7 @@ class CommentController {
     }
   };
 
-  //댓글 삭제하기
+  //댓글 삭제
   deleteComment = async (req, res, next) => {
     const { commentId } = req.params;
     const userId = res.locals.userId - SECRET_SUM;

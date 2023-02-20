@@ -15,16 +15,9 @@ class DiaryService {
   diaryRepository = new DiaryRepository(Diaries);
   notificationRepository = new NotificationRepository(Notifications);
   chatRepository = new ChatRepository(Chats, Users);
+
   //다이어리 생성
-  createDiary = async (
-    userId,
-    couple,
-    diaryName,
-    outsideColor,
-    insideColor,
-    sticker,
-    design,
-  ) => {
+  createDiary = async (userId, couple, diaryName, outsideColor, design) => {
     if (!diaryName) throw new ValidationError('필수 항목을 입력해주세요');
 
     await this.diaryRepository.createDiary(
@@ -32,8 +25,6 @@ class DiaryService {
       couple,
       diaryName,
       outsideColor,
-      insideColor,
-      sticker,
       design,
     );
   };
@@ -48,15 +39,7 @@ class DiaryService {
   };
 
   //다이어리 수정
-  patchDiary = async (
-    diaryId,
-    userId,
-    diaryName,
-    outsideColor,
-    insideColor,
-    sticker,
-    design,
-  ) => {
+  patchDiary = async (diaryId, userId, diaryName, outsideColor, design) => {
     const diary = await this.diaryRepository.exDiary(diaryId);
 
     if (!diary) throw new NotFoundError('다이어리가 존재하지 않습니다.');
@@ -69,8 +52,6 @@ class DiaryService {
       diaryId,
       diaryName,
       outsideColor,
-      insideColor,
-      sticker,
       design,
     );
   };

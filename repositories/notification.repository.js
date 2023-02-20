@@ -48,7 +48,7 @@ class NotificationRepository {
     });
   };
 
-  //댓글 알림 만드기
+  //댓글 알림 생성
   createCommentsNotification = async (
     code,
     userId,
@@ -66,6 +66,7 @@ class NotificationRepository {
       comment,
     });
   };
+
   //알림 삭제
   deleteNotification = async (notificationId) => {
     await this.notificationModel.destroy({ where: { notificationId } });

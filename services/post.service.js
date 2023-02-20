@@ -24,6 +24,7 @@ class PostService {
   bookmarkRepository = new BookmarkRepository(Bookmark_diary, Bookmark_post);
   commentRepository = new CommentRepository(Comments);
   notificationRepository = new NotificationRepository(Notifications);
+
   //일기장 생성
   createPost = async (
     userId,
@@ -164,6 +165,7 @@ class PostService {
     return tags;
   };
 
+  // 일기장 조회
   searchPost = async (diaryId, userId, title, content, tag) => {
     const diary = await this.diaryRepository.exDiary(diaryId);
     let posts = {};

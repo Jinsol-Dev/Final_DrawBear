@@ -6,22 +6,12 @@ class DiaryRepository {
   }
 
   //다이어리 생성
-  createDiary = async (
-    userId,
-    couple,
-    diaryName,
-    outsideColor,
-    insideColor,
-    sticker,
-    design,
-  ) => {
+  createDiary = async (userId, couple, diaryName, outsideColor, design) => {
     await this.diaryModel.create({
       userId,
       couple,
       diaryName,
       outsideColor,
-      insideColor,
-      sticker,
       design,
     });
   };
@@ -53,20 +43,11 @@ class DiaryRepository {
   };
 
   //다이어리 수정
-  patchDiary = async (
-    diaryId,
-    diaryName,
-    outsideColor,
-    insideColor,
-    sticker,
-    design,
-  ) => {
+  patchDiary = async (diaryId, diaryName, outsideColor, design) => {
     await this.diaryModel.update(
       {
         diaryName,
         outsideColor,
-        insideColor,
-        sticker,
         design,
       },
       { where: { diaryId } },

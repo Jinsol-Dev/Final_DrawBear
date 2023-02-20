@@ -9,16 +9,13 @@ class DiaryController {
   createDiary = async (req, res) => {
     try {
       const userId = res.locals.userId - SECRET_SUM;
-      const { couple, diaryName, outsideColor, insideColor, sticker, design } =
-        req.body;
+      const { couple, diaryName, outsideColor, design } = req.body;
 
       await this.diaryService.createDiary(
         userId,
         couple,
         diaryName,
         outsideColor,
-        insideColor,
-        sticker,
         design,
       );
 
@@ -55,16 +52,13 @@ class DiaryController {
     try {
       const userId = res.locals.userId - SECRET_SUM;
       const { diaryId } = req.params;
-      const { diaryName, outsideColor, insideColor, sticker, design } =
-        req.body;
+      const { diaryName, outsideColor, design } = req.body;
 
       await this.diaryService.patchDiary(
         diaryId,
         userId,
         diaryName,
         outsideColor,
-        insideColor,
-        sticker,
         design,
       );
 
@@ -99,6 +93,7 @@ class DiaryController {
       });
     }
   };
+
   //다이어리 초대 수락
   inviteAcceptDiary = async (req, res) => {
     try {
@@ -123,6 +118,7 @@ class DiaryController {
     }
   };
 
+  // 다이어리 초대
   inviteDiary = async (req, res) => {
     try {
       const userId = res.locals.userId - SECRET_SUM;
@@ -140,6 +136,7 @@ class DiaryController {
       });
     }
   };
+
   //공유 다이어리 조회
   findShareDiary = async (req, res) => {
     try {

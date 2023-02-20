@@ -114,6 +114,7 @@ group by Posts.postId
     });
   };
 
+  // 북마크한 일기장 전체 조회
   findAllPostBookmark = async (diaryId, userId) => {
     const query = `SELECT Posts.postId,Posts.userId,Users.nickname,title,image,tag,profileImg,IFNULL(commentsCount,0) as commentsCount,Posts.createdAt
     FROM Posts LEFT JOIN CountTable 
