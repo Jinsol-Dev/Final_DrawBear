@@ -26,6 +26,7 @@ class AuthController {
       });
     }
   };
+
   //닉네임 중복 체크
   checkNickname = async (req, res, next) => {
     try {
@@ -43,6 +44,7 @@ class AuthController {
       });
     }
   };
+
   //회원가입
   signup = async (req, res, next) => {
     try {
@@ -67,6 +69,7 @@ class AuthController {
       });
     }
   };
+
   //로그인
   login = async (req, res, next) => {
     try {
